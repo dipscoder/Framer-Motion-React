@@ -21,7 +21,8 @@ function App() {
       <Header />
       <Route
         render={({ location }) => (
-          <AnimatePresence initial={false} exitBeforeEnter > 
+          // initial={false}
+          <AnimatePresence  exitBeforeEnter > 
               <Switch location={location} key={location.pathname}>
                 <Route
                   exact
