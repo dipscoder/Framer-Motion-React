@@ -6,6 +6,28 @@ import ScrollForMore from "../components/scrollForMore";
 
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 
+const firstName = {
+  animate: {
+    y: 0,
+    transition: {
+      delayChildren: 0.6,
+      staggerChildren: 0.04,
+      staggerDirection: -1
+    }
+  }
+}
+
+const letter = {
+  initial: {
+    y: 400
+  },
+  animate: {
+    y:0,
+    transition: { duration: 1, ...transition }
+  }
+}
+
+
 const Model = ({ imageDetails }) => {
   return (
     <motion.div
@@ -24,23 +46,23 @@ const Model = ({ imageDetails }) => {
               </div>
               <div className="mua">MUA: @mylifeascrystall</div>
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} className="model">
-              <span className="first">
-                <span>Y</span>
-                <span>a</span>
-                <span>s</span>
-                <span>m</span>
-                <span>e</span>
-                <span>e</span>
-                <span>n</span>
-              </span>
-              <span className="last">
-                <span>T</span>
-                <span>a</span>
-                <span>r</span>
-                <span>i</span>
-                <span>q</span>
-              </span>
+            <motion.div className="model">
+              <motion.span variants={firstName} className="first">
+                <motion.span variants={letter}>Y</motion.span>
+                <motion.span variants={letter}>a</motion.span>
+                <motion.span variants={letter}>s</motion.span>
+                <motion.span variants={letter}>m</motion.span>
+                <motion.span variants={letter}>e</motion.span>
+                <motion.span variants={letter}>e</motion.span>
+                <motion.span variants={letter}>n</motion.span>
+              </motion.span>
+              <motion.span className="last">
+                <motion.span>T</motion.span>
+                <motion.span>a</motion.span>
+                <motion.span>r</motion.span>
+                <motion.span>i</motion.span>
+                <motion.span>q</motion.span>
+              </motion.span>
             </motion.div>
           </div>
         </div>
