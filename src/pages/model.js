@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 //Components
 import ScrollForMore from "../components/scrollForMore";
@@ -44,8 +44,20 @@ const Model = ({ imageDetails }) => {
   const { scrollYProgress } =  useViewportScroll()
   const scale = useTransform(scrollYProgress, [0,1], [1,1.15] )
 
+  // Lock's scrolling while animation is running
+  const [canScroll, setCanScroll] = useState(false)
+
+  useEffect(() => {
+    if (canScroll === false) {
+      document.querySelector('body').classList.add('no-scroll');
+    } else {
+      document.querySelector('body').classList.remove('no-scroll');
+    }
+  }, [canScroll])
+
   return (
     <motion.div
+      onAnimationComplete={() => setCanScroll(true)}
       initial="initial"
       animate="animate"
       exit="exit"
