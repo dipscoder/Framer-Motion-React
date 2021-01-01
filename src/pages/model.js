@@ -115,7 +115,7 @@ const Model = ({ imageDetails }) => {
               </motion.div>
             </div>
           </div>
-          <ScrollForMore />
+          <ScrollForMore transition={transition} />
         </div>
       </div>
       <div className="detailed-information">
