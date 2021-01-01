@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 //Components
 import ScrollForMore from "../components/scrollForMore";
 //Ease
@@ -39,6 +39,11 @@ const lastName = {
 };
 
 const Model = ({ imageDetails }) => {
+
+  // For zoomingIn the image on Scroll - https://www.youtube.com/watch?v=3QrkCmsfewM&t=2106s 43min
+  const { scrollYProgress } =  useViewportScroll()
+  const scale = useTransform(scrollYProgress, [0,1], [1,1.15] )
+
   return (
     <motion.div
       initial="initial"
@@ -103,6 +108,7 @@ const Model = ({ imageDetails }) => {
               >
                 <div className="frame-single">
                   <motion.img
+                    style={{scale: scale}}
                     initial={{ scale: 1.1 }}
                     animate={{
                       y: window.innerWidth > 1440 ? -1400 : -600,
