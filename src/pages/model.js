@@ -12,7 +12,7 @@ const firstName = {
     transition: {
       delayChildren: 0.6,
       staggerChildren: 0.04,
-      staggerDirection: -1
+      staggerDirection: -1                // Right to Left
     }
   }
 }
@@ -27,6 +27,16 @@ const letter = {
   }
 }
 
+const lastName = {
+  animate: {
+    y: 0,
+    transition: {
+      delayChildren: 0.6,
+      staggerChildren: 0.04,
+      staggerDirection: 1                  // Left to Right
+    }
+  }
+}
 
 const Model = ({ imageDetails }) => {
   return (
@@ -56,12 +66,12 @@ const Model = ({ imageDetails }) => {
                 <motion.span variants={letter}>e</motion.span>
                 <motion.span variants={letter}>n</motion.span>
               </motion.span>
-              <motion.span className="last">
-                <motion.span>T</motion.span>
-                <motion.span>a</motion.span>
-                <motion.span>r</motion.span>
-                <motion.span>i</motion.span>
-                <motion.span>q</motion.span>
+              <motion.span variants={lastName} className="last">
+                <motion.span variants={letter}>T</motion.span>
+                <motion.span variants={letter}>a</motion.span>
+                <motion.span variants={letter}>r</motion.span>
+                <motion.span variants={letter}>i</motion.span>
+                <motion.span variants={letter}>q</motion.span>
               </motion.span>
             </motion.div>
           </div>
