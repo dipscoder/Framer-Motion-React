@@ -12,20 +12,20 @@ const firstName = {
     transition: {
       delayChildren: 0.6,
       staggerChildren: 0.04,
-      staggerDirection: -1                // Right to Left
-    }
-  }
-}
+      staggerDirection: -1, // Right to Left
+    },
+  },
+};
 
 const letter = {
   initial: {
-    y: 400
+    y: 400,
   },
   animate: {
-    y:0,
-    transition: { duration: 1, ...transition }
-  }
-}
+    y: 0,
+    transition: { duration: 1, ...transition },
+  },
+};
 
 const lastName = {
   animate: {
@@ -33,10 +33,10 @@ const lastName = {
     transition: {
       delayChildren: 0.6,
       staggerChildren: 0.04,
-      staggerDirection: 1                  // Left to Right
-    }
-  }
-}
+      staggerDirection: 1, // Left to Right
+    },
+  },
+};
 
 const Model = ({ imageDetails }) => {
   return (
@@ -49,7 +49,15 @@ const Model = ({ imageDetails }) => {
       <div className="container fluid">
         <div className="row center top-row">
           <div className="top">
-            <motion.div initial={{ opacity: 0 }} className="details">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: 1.3, ...transition },
+              }}
+              className="details"
+            >
               <div className="location">
                 <span>28.538336</span>
                 <span>-81.379234</span>
@@ -86,10 +94,10 @@ const Model = ({ imageDetails }) => {
                   height: imageDetails.height,
                 }}
                 animate={{
-                  y: '0',
-                  width: '100%',
-                  height: window.innerWidth > 1440 ? 800 : 400 ,
-                  transition: { delay: 0.2, ...transition}
+                  y: "0",
+                  width: "100%",
+                  height: window.innerWidth > 1440 ? 800 : 400,
+                  transition: { delay: 0.2, ...transition },
                 }}
                 className="thumbnail-single"
               >
@@ -98,7 +106,7 @@ const Model = ({ imageDetails }) => {
                     initial={{ scale: 1.1 }}
                     animate={{
                       y: window.innerWidth > 1440 ? -1400 : -600,
-                      transition: { delay: 0.2, ...transition }
+                      transition: { delay: 0.2, ...transition },
                     }}
                     src={require("../images/yasmeen.webp")}
                     alt="an image"
